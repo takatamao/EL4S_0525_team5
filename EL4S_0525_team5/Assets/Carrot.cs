@@ -33,11 +33,16 @@ public class Carrot : GimmickBase
 
     protected override void OnCutSuccess()
     {
+        _spawner.GenerateSlashEffect();
+        _spawner.GenerateZaku();
+
         Destroy(this.gameObject);
     }
 
     protected override void OnCutFailure()
     {
+        _spawner.GenerateSuka();
+
         isCutFailed = true;
         Debug.Log("通過");
     }

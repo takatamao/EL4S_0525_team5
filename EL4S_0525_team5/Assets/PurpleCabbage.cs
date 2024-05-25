@@ -13,8 +13,12 @@ public class PurpleCabbage : GimmickBase
 
     private Sequence cutSequence;
 
+    private SlashSpawner _spawner;
+
     protected override void OnStart()
     {
+        _spawner = GameObject.FindWithTag("ES").GetComponent<SlashSpawner>();
+
         cutSequence = DOTween.Sequence()
             .Append(
                 transform.DOMove(BEFOR_CUT_VELOCITY, _duration)
@@ -35,11 +39,16 @@ public class PurpleCabbage : GimmickBase
 
     protected override void OnCutSuccess()
     {
+        _spawner.GenerateSlashEffect();
+        _spawner.GenerateZaku();
+
         Destroy(this.gameObject);
     }
 
-          protected override void OnCutFailure()
+    protected override void OnCutFailure()
     {
+        _spawner.GenerateSuka();
+
         isCutFailed = true;
         Sequence sequence = DOTween.Sequence()
             .Append(
