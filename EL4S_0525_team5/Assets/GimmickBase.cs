@@ -14,6 +14,8 @@ public class GimmickBase : MonoBehaviour
     [SerializeField] protected float _duration = 2.0f;
     [SerializeField] protected GameObject _objectFragment;
     [SerializeField] protected float _baseScore = 100;
+    private SlashSpawner _spawner;
+
 
     protected bool isCutFailed = false;
 

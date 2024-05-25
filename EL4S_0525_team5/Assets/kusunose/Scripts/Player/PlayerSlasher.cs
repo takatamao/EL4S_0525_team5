@@ -78,7 +78,7 @@ public class PlayerSlasher : MonoBehaviour, ISlashResultApplyable
         else
         {
 
-            _spawner.GenerateSuka();
+            
 
             Debug.Log("ÉJÉbÉgé∏îs");
 
