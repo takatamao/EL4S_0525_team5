@@ -52,7 +52,7 @@ public class SlashSpawner : MonoBehaviour
     public void GenerateZaku()
     {
         // ÉUÉNï∂éö
-        Vector3 randPos = new Vector3(Random.Range(-_randomRange, _randomRange), Random.Range(0, _randomRange), 0f);
+        Vector3 randPos = new Vector3(Random.Range(-_randomRange / 2, _randomRange * 1.5f), Random.Range(0, _randomRange), 0f);
         randPos += transform.position;
         Quaternion randRot = new Quaternion(0f, 0f, Random.Range(-0.8f, 0.8f), 1f);
         Instantiate(_zaku, randPos, randRot);
