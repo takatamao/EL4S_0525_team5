@@ -5,6 +5,8 @@ public class Onion : GimmickBase
 {
     private Sequence cutSequence;
 
+    [SerializeField]
+    private float flashDuration = 2f;
     protected override void OnStart()
     {
         cutSequence = DOTween.Sequence()
@@ -58,6 +60,7 @@ public class Onion : GimmickBase
             SlashResult slashResult = new();
             slashResult.SetScore(score);
             slashResult.SetSuccessed(false);
+            slashResult.SetBlindDuration(flashDuration);
             slashResultApplyable.ApplySlashResult(slashResult);
         }
 
