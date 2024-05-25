@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _duration: 2
   _objectFragment: {fileID: 0}
+  _baseScore: -100
 --- !u!212 &6101692378931037870
 SpriteRenderer:
   m_ObjectHideFlags: 0

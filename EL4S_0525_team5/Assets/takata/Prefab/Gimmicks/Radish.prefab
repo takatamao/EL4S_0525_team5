@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4999963227444695605}
-  - component: {fileID: -1226190976959406385}
+  - component: {fileID: -9052401773581147632}
   - component: {fileID: 6101692378931037870}
   - component: {fileID: 4010048425090722919}
   - component: {fileID: 2626494424701631523}
   m_Layer: 0
-  m_Name: PurpleCabbage
+  m_Name: Radish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,7 +35,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-1226190976959406385
+--- !u!114 &-9052401773581147632
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,13 +44,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5660156665406070719}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff3b0d8df2d11a14da551784db956256, type: 3}
+  m_Script: {fileID: 11500000, guid: d472ae669e7e23244bae6bb70ff57343, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _duration: 2
   _objectFragment: {fileID: 0}
-  cuttingTime: 1
-  requiredCutCount: 3
+  _baseScore: 100
+  requiredCutTime: 0.3
 --- !u!212 &6101692378931037870
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -89,11 +89,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 28020713
-  m_SortingLayer: 1
-  m_SortingOrder: 2
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.390566, b: 0.8855222, a: 1}
+  m_Color: {r: 0.86415094, g: 0.7370654, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
