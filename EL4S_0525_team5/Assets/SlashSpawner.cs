@@ -12,6 +12,9 @@ public class SlashSpawner : MonoBehaviour
     private GameObject _zaku;
 
     [SerializeField]
+    private GameObject _suka;
+
+    [SerializeField]
     private float _randomRange;
 
     private CinemachineImpulseSource _impulseSource;
@@ -33,9 +36,10 @@ public class SlashSpawner : MonoBehaviour
     {
         if(Input.GetKeyUp(KeyCode.Space)) 
         {
-            GenerateSlashEffect();
+            //GenerateSlashEffect();
 
-            GenerateZaku();
+            //GenerateZaku();
+            //GenerateSuka();
         }
     }
 
@@ -54,6 +58,15 @@ public class SlashSpawner : MonoBehaviour
         Instantiate(_zaku, randPos, randRot);
 
         CameraShake();
+    }
+
+    public void GenerateSuka()
+    {
+        // ÉUÉNï∂éö
+        Vector3 randPos = new Vector3(Random.Range(-_randomRange, _randomRange), Random.Range(0, _randomRange), 0f);
+        randPos += transform.position;
+        Quaternion randRot = new Quaternion(0f, 0f, Random.Range(-0.8f, 0.8f), 1f);
+        Instantiate(_suka, randPos, randRot);
     }
 
     public void CameraShake()
