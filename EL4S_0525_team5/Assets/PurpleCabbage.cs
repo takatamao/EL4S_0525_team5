@@ -11,11 +11,13 @@ public class PurpleCabbage : GimmickBase
 
     private float currentCutCount = 0;
 
+    private Sequence cutSequence;
+
     protected override void OnStart()
     {
-        Sequence sequence = DOTween.Sequence()
+        cutSequence = DOTween.Sequence()
             .Append(
-                transform.DOMove(CUT_POSITION, _duration)
+                transform.DOMove(BEFOR_CUT_VELOCITY, _duration)
                 .SetEase(Ease.Linear)
                 .SetRelative(true))
             .AppendInterval(cuttingTime)
@@ -23,21 +25,30 @@ public class PurpleCabbage : GimmickBase
             .SetLink(gameObject);
     }
 
+    protected override void OnUpdate()
+    {
+        if (false == isCutFailed && transform.position.x < -1)
+        {
+            OnCutFailure();
+        }
+    }
+
     protected override void OnCutSuccess()
     {
         Destroy(this.gameObject);
     }
 
-    protected override void OnCutFailure()
+          protected override void OnCutFailure()
     {
+        isCutFailed = true;
         Sequence sequence = DOTween.Sequence()
             .Append(
-                transform.DOMove(CUT_POSITION, _duration)
+                transform.DOMove(CUTTING_VELOCITY, _duration)
                 .SetEase(Ease.Linear).
                 SetRelative(true))
             .SetLink(gameObject);
 
-        Debug.Log("カット失敗:通過");
+        Debug.Log("通過");
     }
 
     protected override void OnHitKnifeEnter(Collider2D collision)
@@ -53,16 +64,20 @@ public class PurpleCabbage : GimmickBase
 
         currentCutCount++;
 
+        var slashResultApplyable = collision.GetComponentInParent<ISlashResultApplyable>();
+        if (slashResultApplyable != null)
+        {
+            float distance = Mathf.Abs(transform.position.x);
+            float score = (1.0f - distance) * _baseScore / requiredCutCount;
+
+            SlashResult slashResult = new();
+            slashResult.SetScore(score);
+            slashResult.SetSuccessed(true);
+            slashResultApplyable.ApplySlashResult(slashResult);
+        }
+
         if (currentCutCount >= requiredCutCount)
         {
-            var slashResultApplyable = collision.GetComponentInParent<ISlashResultApplyable>();
-            if (slashResultApplyable != null)
-            {
-                SlashResult slashResult = new();
-                slashResult.SetSuccessed(true);
-                slashResultApplyable.ApplySlashResult(slashResult);
-            }
-
             OnCutSuccess();
         }
     }

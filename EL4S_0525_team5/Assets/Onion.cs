@@ -3,15 +3,28 @@ using UnityEngine;
 
 public class Onion : GimmickBase
 {
+    private Sequence cutSequence;
+
     protected override void OnStart()
     {
-        Sequence sequence = DOTween.Sequence()
+        cutSequence = DOTween.Sequence()
             .Append(
-                transform.DOMove(CUT_POSITION, _duration)
+                transform.DOMove(BEFOR_CUT_VELOCITY, _duration)
                 .SetEase(Ease.Linear)
                 .SetRelative(true))
-            .AppendCallback(() => OnCutFailure())
+            .Append(
+                transform.DOMove(CUTTING_VELOCITY, _duration)
+                .SetEase(Ease.Linear)
+                .SetRelative(true))
             .SetLink(gameObject);
+    }
+
+    protected override void OnUpdate()
+    {
+        if (false == isCutFailed && transform.position.x < -1)
+        {
+            OnCutFailure();
+        }
     }
 
     protected override void OnCutSuccess()
@@ -21,14 +34,8 @@ public class Onion : GimmickBase
 
     protected override void OnCutFailure()
     {
-        Sequence sequence = DOTween.Sequence()
-            .Append(
-                transform.DOMove(CUT_POSITION, _duration)
-                .SetEase(Ease.Linear).
-                SetRelative(true))
-            .SetLink(gameObject);
-
-        Debug.Log("カット失敗:通過");
+        isCutFailed = true;
+        Debug.Log("通過");
     }
 
     protected override void OnHitKnifeEnter(Collider2D collision)
@@ -45,7 +52,11 @@ public class Onion : GimmickBase
         var slashResultApplyable = collision.GetComponentInParent<ISlashResultApplyable>();
         if (slashResultApplyable != null)
         {
+            float distance = Mathf.Abs(transform.position.x);
+            float score = (1.0f - distance) * _baseScore;
+
             SlashResult slashResult = new();
+            slashResult.SetScore(score);
             slashResult.SetSuccessed(false);
             slashResultApplyable.ApplySlashResult(slashResult);
         }
