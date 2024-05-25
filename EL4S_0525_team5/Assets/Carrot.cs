@@ -5,8 +5,12 @@ public class Carrot : GimmickBase
 {
     private Sequence cutSequence;
 
+    private SlashSpawner _spawner;
+
     protected override void OnStart()
     {
+        _spawner = GameObject.FindWithTag("ES").GetComponent<SlashSpawner>();
+
         cutSequence = DOTween.Sequence()
             .Append(
                 transform.DOMove(BEFOR_CUT_VELOCITY, _duration)
