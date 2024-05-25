@@ -22,10 +22,14 @@ public class PlayerSlasher : MonoBehaviour, ISlashResultApplyable
     private int score = 0;
 
     public int Score => score;
+    private SlashSpawner _spawner;
+
 
 
     void Start()
     {
+        _spawner = GameObject.FindWithTag("ES").GetComponent<SlashSpawner>();
+
         boxCollider2D = handObject.GetComponent<BoxCollider2D>();
         boxCollider2D.enabled = false;
         animator = GetComponent<Animator>();
@@ -73,7 +77,11 @@ public class PlayerSlasher : MonoBehaviour, ISlashResultApplyable
         // 失敗
         else
         {
+
+            _spawner.GenerateSuka();
+
             Debug.Log("カット失敗");
+
             if (slashResult.BlindDuration > 0)
             {
                 // めくらましのデバフ処理

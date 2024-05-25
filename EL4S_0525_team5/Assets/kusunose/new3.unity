@@ -495,6 +495,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SlashArea
       objectReference: {fileID: 0}
+    - target: {fileID: 7494032198695336179, guid: ba349d7b330a91c4f9f6414d012c88e5, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -582,7 +586,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2245106769487845044, guid: b22ad32761e882b4ea4d6e8cc919e33c, type: 3}
       propertyPath: _spawnList.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2245106769487845044, guid: b22ad32761e882b4ea4d6e8cc919e33c, type: 3}
       propertyPath: _cutableList.Array.size
@@ -591,11 +595,11 @@ PrefabInstance:
     - target: {fileID: 2245106769487845044, guid: b22ad32761e882b4ea4d6e8cc919e33c, type: 3}
       propertyPath: _spawnList.Array.data[0]
       value: 
-      objectReference: {fileID: 5660156665406070719, guid: 462d47c29e6e4c847aa9d0093622132f, type: 3}
+      objectReference: {fileID: 5660156665406070719, guid: 65ec0f0d08ab6b741953709cb1a6f7ed, type: 3}
     - target: {fileID: 2245106769487845044, guid: b22ad32761e882b4ea4d6e8cc919e33c, type: 3}
       propertyPath: _spawnList.Array.data[1]
       value: 
-      objectReference: {fileID: 5660156665406070719, guid: 462d47c29e6e4c847aa9d0093622132f, type: 3}
+      objectReference: {fileID: 5660156665406070719, guid: 80893d5bbbe098f43bb71b194b8f56ca, type: 3}
     - target: {fileID: 2245106769487845044, guid: b22ad32761e882b4ea4d6e8cc919e33c, type: 3}
       propertyPath: _spawnList.Array.data[2]
       value: 

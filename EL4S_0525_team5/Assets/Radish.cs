@@ -54,14 +54,14 @@ public class Radish : GimmickBase
 
     protected override void OnHitKnifeEnter(Collider2D collision)
     {
-        try
-        {
-            Instantiate(_objectFragment);
-        }
-        catch
-        {
-             Debug.LogError("破片オブジェクトがアタッチされていません！");
-        }
+        //try
+        //{
+        //    Instantiate(_objectFragment);
+        //}
+        //catch
+        //{
+        //     Debug.LogError("破片オブジェクトがアタッチされていません！");
+        //}
 
         if(cuttingState == CuttingState.NotCut)
         {
