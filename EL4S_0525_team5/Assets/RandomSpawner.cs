@@ -3,10 +3,11 @@ using UnityEngine;
 public class RandomSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] _spawnList;
-    [SerializeField] private bool _autoMode = false;
     [SerializeField] private float _spawnRate = 1.0f;
     [SerializeField] private float _destroyTime = 5.0f;
                      private float _originRate;
+
+    [SerializeField] private bool _autoMode = true;
 
     // Start is called before the first frame update
     void Start()
