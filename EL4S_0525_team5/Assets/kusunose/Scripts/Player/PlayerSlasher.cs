@@ -84,15 +84,8 @@ public class PlayerSlasher : MonoBehaviour, ISlashResultApplyable
         }
         // Ž¸”s
         else
-<<<<<<< HEAD
-        {
-
-            
-
-=======
         {
             audioSource.PlayOneShot(CutAudio_Miss);
->>>>>>> kawashima_Scene
             Debug.Log("ƒJƒbƒgŽ¸”s");
 
             if (slashResult.BlindDuration > 0)
