@@ -57,7 +57,7 @@ public class PlayerSlasher : MonoBehaviour, ISlashResultApplyable
         // 失敗
         else
         {
-            Debug.Log("カット失敗");
+            Debug.Log("カット失敗:切っちゃダメ");
             if (slashResult.BlindDuration > 0)
             {
                 // めくらましのデバフ処理

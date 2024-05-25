@@ -3,19 +3,32 @@ using UnityEngine;
 
 public class Onion : GimmickBase
 {
-    private void Start()
+    protected override void OnStart()
     {
-        Sequence sequence = DOTween.Sequence();
-        sequence
+        Sequence sequence = DOTween.Sequence()
             .Append(
-                transform.DOMoveX(-10, 2.0f)
+                transform.DOMove(CUT_POSITION, _duration)
                 .SetEase(Ease.Linear)
                 .SetRelative(true))
+            .AppendCallback(() => OnCutFailure())
+            .SetLink(gameObject);
+    }
+
+    protected override void OnCutSuccess()
+    {
+        Destroy(this.gameObject);
+    }
+
+    protected override void OnCutFailure()
+    {
+        Sequence sequence = DOTween.Sequence()
             .Append(
-                transform.DOMoveX(-10, 2.0f)
+                transform.DOMove(CUT_POSITION, _duration)
                 .SetEase(Ease.Linear).
                 SetRelative(true))
             .SetLink(gameObject);
+
+        Debug.Log("カット失敗:通過");
     }
 
     protected override void OnHitKnifeEnter(Collider2D collision)
@@ -30,13 +43,13 @@ public class Onion : GimmickBase
         }
 
         var slashResultApplyable = collision.GetComponentInParent<ISlashResultApplyable>();
-        if(slashResultApplyable != null)
+        if (slashResultApplyable != null)
         {
             SlashResult slashResult = new();
             slashResult.SetSuccessed(false);
             slashResultApplyable.ApplySlashResult(slashResult);
         }
 
-        Destroy(this.gameObject);
+        OnCutSuccess();
     }
 }
