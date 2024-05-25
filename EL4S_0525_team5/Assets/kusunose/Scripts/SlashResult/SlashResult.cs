@@ -11,6 +11,12 @@ public class SlashResult
     public bool IsSuccessed => isSuccessed;
 
     /// <summary>
+    /// スコア
+    /// </summary>
+    private float score = 0;
+    public float Score => score;
+
+    /// <summary>
     /// 目くらまし時間
     /// </summary>
     private float blindDuration = 0.0f;
@@ -23,6 +29,15 @@ public class SlashResult
     public void SetSuccessed(bool successed)
     {
         isSuccessed = successed;
+    }
+
+    /// <summary>
+    /// スコアをセット
+    /// </summary>
+    /// <param name="value"></param>
+    public void SetScore(float value)
+    {
+        score = value;
     }
 
     /// <summary>

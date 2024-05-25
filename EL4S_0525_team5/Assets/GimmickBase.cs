@@ -9,9 +9,13 @@ public class GimmickBase : MonoBehaviour
         CutComplete,
     }
 
-    protected static readonly Vector2 CUT_POSITION = new Vector2(-10, 0);
+    protected static readonly Vector2 BEFOR_CUT_VELOCITY = new Vector2(-10f, 0);
+    protected static readonly Vector2 CUTTING_VELOCITY = new Vector2(-10f, 0);
     [SerializeField] protected float _duration = 2.0f;
     [SerializeField] protected GameObject _objectFragment;
+    [SerializeField] protected float _baseScore = 100;
+
+    protected bool isCutFailed = false;
 
     protected CuttingState cuttingState = CuttingState.NotCut;
 
