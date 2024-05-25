@@ -10,6 +10,7 @@ public class PlayerSlasher : MonoBehaviour, ISlashResultApplyable
     [SerializeField]
     private GameObject handObject;
 
+    Animator animator;
     /// <summary>
     /// 切る当たり判定
     /// </summary>
@@ -19,6 +20,7 @@ public class PlayerSlasher : MonoBehaviour, ISlashResultApplyable
     {
         boxCollider2D = handObject.GetComponent<BoxCollider2D>();
         boxCollider2D.enabled = false;
+        animator = GetComponent<Animator>();    
     }
 
     void Update()
@@ -26,19 +28,14 @@ public class PlayerSlasher : MonoBehaviour, ISlashResultApplyable
         // 振り下ろす
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            boxCollider2D.enabled = true;
-
-#if UNITY_EDITOR
-            Vector2 leftTop = (Vector2)handObject.transform.position + boxCollider2D.size / 2;
-            Vector2 rightBotom = (Vector2)handObject.transform.position - boxCollider2D.size / 2;
-            ShapeGizmo.DrawWire2DRect(leftTop, rightBotom, Color.red);
-#endif
+            animator.ResetTrigger("trIdle");
+            animator.SetTrigger("trCut");
 
         }
         //　戻す
         else if (Input.GetKeyUp(KeyCode.Space))
         {
-            boxCollider2D.enabled = false;
+           
         }
     }
 
@@ -57,12 +54,32 @@ public class PlayerSlasher : MonoBehaviour, ISlashResultApplyable
         // 失敗
         else
         {
-            Debug.Log("カット失敗:切っちゃダメ");
+            Debug.Log("カット失敗");
             if (slashResult.BlindDuration > 0)
             {
                 // めくらましのデバフ処理
             }
         }
 
+    }
+
+    void OnCutBegin()
+    {
+        animator.ResetTrigger("trCut");
+        animator.SetTrigger("trIdle");
+        boxCollider2D.enabled = true;
+
+#if UNITY_EDITOR
+        Vector2 leftTop = (Vector2)handObject.transform.position + boxCollider2D.size / 2;
+        Vector2 rightBotom = (Vector2)handObject.transform.position - boxCollider2D.size / 2;
+        ShapeGizmo.DrawWire2DRect(leftTop, rightBotom, Color.red);
+#endif
+        Invoke("OnCutEnd", 0.1f);   
+    }
+
+    void OnCutEnd()
+    {
+        boxCollider2D.enabled = false;
+       
     }
 }
