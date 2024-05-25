@@ -131,6 +131,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2245106769487845044, guid: b22ad32761e882b4ea4d6e8cc919e33c, type: 3}
+      propertyPath: _spawnRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2245106769487845044, guid: b22ad32761e882b4ea4d6e8cc919e33c, type: 3}
+      propertyPath: _spawnList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2245106769487845044, guid: b22ad32761e882b4ea4d6e8cc919e33c, type: 3}
+      propertyPath: _spawnList.Array.data[0]
+      value: 
+      objectReference: {fileID: 5660156665406070719, guid: fda83cee40f2aaf46ac8fba94521d6b0, type: 3}
     - target: {fileID: 3235835034731129278, guid: b22ad32761e882b4ea4d6e8cc919e33c, type: 3}
       propertyPath: m_Name
       value: RandomSpawner
