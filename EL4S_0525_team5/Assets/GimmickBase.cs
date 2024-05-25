@@ -2,14 +2,29 @@ using UnityEngine;
 
 public class GimmickBase : MonoBehaviour
 {
-    [SerializeField] protected float _speed = 5.0f;
+    protected static readonly Vector2 CUT_POSITION = new Vector2(-10, 0);
+    [SerializeField] protected float _duration = 2.0f;
     [SerializeField] protected GameObject _objectFragment;
 
-    void Update()
+    private void Start()
     {
-        //this.GetComponent<Rigidbody2D>().velocity = new Vector2(-_speed, 0);
+        OnStart();
     }
 
+    private void Update()
+    {
+        OnUpdate();
+    }
+
+    /// <summary>
+    /// カット成功時
+    /// </summary>
+    protected virtual void OnCutSuccess() { }
+
+    /// <summary>
+    /// カット失敗時
+    /// </summary>
+    protected virtual void OnCutFailure() { }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -17,4 +32,7 @@ public class GimmickBase : MonoBehaviour
     }
 
     protected virtual void OnHitKnifeEnter(Collider2D collision) { }
+
+    protected virtual void OnStart() { }
+    protected virtual void OnUpdate() { }
 }

@@ -1,8 +1,16 @@
 using DG.Tweening;
 using UnityEngine;
 
-public class Carrot : GimmickBase
+public class PurpleCabbage : GimmickBase
 {
+    [SerializeField]
+    private float cuttingTime = 1.0f;
+
+    [SerializeField]
+    private float requiredCutCount = 3;
+
+    private float currentCutCount = 0;
+
     protected override void OnStart()
     {
         Sequence sequence = DOTween.Sequence()
@@ -10,6 +18,7 @@ public class Carrot : GimmickBase
                 transform.DOMove(CUT_POSITION, _duration)
                 .SetEase(Ease.Linear)
                 .SetRelative(true))
+            .AppendInterval(cuttingTime)
             .AppendCallback(() => OnCutFailure())
             .SetLink(gameObject);
     }
@@ -42,14 +51,19 @@ public class Carrot : GimmickBase
              Debug.LogError("破片オブジェクトがアタッチされていません！");
         }
 
-        var slashResultApplyable = collision.GetComponentInParent<ISlashResultApplyable>();
-        if(slashResultApplyable != null)
-        {
-            SlashResult slashResult = new();
-            slashResult.SetSuccessed(true);
-            slashResultApplyable.ApplySlashResult(slashResult);
-        }
+        currentCutCount++;
 
-        OnCutSuccess();
+        if (currentCutCount >= requiredCutCount)
+        {
+            var slashResultApplyable = collision.GetComponentInParent<ISlashResultApplyable>();
+            if (slashResultApplyable != null)
+            {
+                SlashResult slashResult = new();
+                slashResult.SetSuccessed(true);
+                slashResultApplyable.ApplySlashResult(slashResult);
+            }
+
+            OnCutSuccess();
+        }
     }
 }
