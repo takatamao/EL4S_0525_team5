@@ -10,6 +10,9 @@ public class PlayerSlasher : MonoBehaviour, ISlashResultApplyable
     [SerializeField]
     private GameObject handObject;
 
+    [SerializeField]
+    private FlashEffect flashEffect;
+
     Animator animator;
     /// <summary>
     /// Ø‚é“–‚½‚è”»’è
@@ -99,6 +102,7 @@ public class PlayerSlasher : MonoBehaviour, ISlashResultApplyable
             {
                 
                 // ‚ß‚­‚ç‚Ü‚µ‚Ìƒfƒoƒtˆ—
+                flashEffect.SetFlashDuration(slashResult.BlindDuration);
             }
         }
 
