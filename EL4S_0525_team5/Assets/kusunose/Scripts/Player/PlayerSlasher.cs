@@ -23,12 +23,19 @@ public class PlayerSlasher : MonoBehaviour, ISlashResultApplyable
 
     public int Score => score;
 
+    [SerializeField]
+    AudioClip CutAudio_Success;
+    [SerializeField]
+    AudioClip CutAudio_Miss;
+
+    AudioSource audioSource;
 
     void Start()
     {
         boxCollider2D = handObject.GetComponent<BoxCollider2D>();
         boxCollider2D.enabled = false;
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -68,14 +75,17 @@ public class PlayerSlasher : MonoBehaviour, ISlashResultApplyable
         if(slashResult.IsSuccessed)
         {
             Debug.Log("カット成功");
+            audioSource.PlayOneShot(CutAudio_Success);
             //スコア加算
         }
         // 失敗
         else
         {
+            audioSource.PlayOneShot(CutAudio_Miss);
             Debug.Log("カット失敗");
             if (slashResult.BlindDuration > 0)
             {
+                
                 // めくらましのデバフ処理
             }
         }
