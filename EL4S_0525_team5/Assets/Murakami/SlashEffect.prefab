@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6589746110788461293}
   - component: {fileID: 1082645559656608049}
   - component: {fileID: 8577326926741629392}
-  m_Layer: 5
+  m_Layer: 31
   m_Name: SlashEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 9050475862844275174}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -5}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -72,9 +72,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 28020713
+  m_SortingLayer: 1
+  m_SortingOrder: 1000
   m_Sprite: {fileID: 327234859, guid: 294791cb1ac850f4bb30cdfc0b812566, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

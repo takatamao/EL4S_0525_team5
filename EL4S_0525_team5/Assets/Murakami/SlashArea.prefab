@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2792140925517258389}
   m_Layer: 0
   m_Name: SlashArea
-  m_TagString: Untagged
+  m_TagString: ES
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,4 +119,4 @@ MonoBehaviour:
   _effect: {fileID: 9050475862844275174, guid: abaa59b7fd7b9be4595b045745793a19, type: 3}
   _zaku: {fileID: 6534338421406729644, guid: 7a5113b75a729c74e808c79b95f49578, type: 3}
   _suka: {fileID: 6534338421406729644, guid: 3f95cb664bce4e449bc827e818aa0cc2, type: 3}
-  _randomRange: 10
+  _randomRange: 2

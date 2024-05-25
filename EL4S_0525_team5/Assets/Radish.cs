@@ -10,8 +10,12 @@ public class Radish : GimmickBase
 
     private Sequence cutSequence;
 
+    private SlashSpawner _spawner;
+
     protected override void OnStart()
     {
+        _spawner = GameObject.FindWithTag("ES").GetComponent<SlashSpawner>();
+
         cutSequence = DOTween.Sequence()
             .Append(
                 transform.DOMove(BEFOR_CUT_VELOCITY, _duration)
@@ -34,25 +38,30 @@ public class Radish : GimmickBase
 
     protected override void OnCutSuccess()
     {
+        _spawner.GenerateSlashEffect();
+        _spawner.GenerateZaku();
+
         Destroy(this.gameObject);
     }
 
     protected override void OnCutFailure()
     {
+        _spawner.GenerateSuka();
+
         isCutFailed = true;
         Debug.Log("通過");
     }
 
     protected override void OnHitKnifeEnter(Collider2D collision)
     {
-        try
-        {
-            Instantiate(_objectFragment);
-        }
-        catch
-        {
-             Debug.LogError("破片オブジェクトがアタッチされていません！");
-        }
+        //try
+        //{
+        //    Instantiate(_objectFragment);
+        //}
+        //catch
+        //{
+        //     Debug.LogError("破片オブジェクトがアタッチされていません！");
+        //}
 
         if(cuttingState == CuttingState.NotCut)
         {
