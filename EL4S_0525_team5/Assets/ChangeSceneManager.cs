@@ -15,16 +15,40 @@ public class ChangeSceneManager : MonoBehaviour
         SceneManager.LoadScene("InGame");
     }
 
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            ExitGame();
+        }
+        if(Input.GetKeyDown(KeyCode.Return))
+        {
+            string sceneName = SceneManager.GetActiveScene().name;
+            if (sceneName == "Title")
+            {
+                SceneManager.LoadScene("InGame");
+            }
+            else if (sceneName == "Result")
+            {
+                SceneManager.LoadScene("Title");
+            }
+            else { }
+        }
+    }
+
     public void ExitGameButton()
     {
-        
+        ExitGame();
+    }
+
+    private void ExitGame()
+    {
         // エディタでの動作確認用
 #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
+        UnityEditor.EditorApplication.isPlaying = false;
 #else
         // ビルドされたゲームでの終了処理
         Application.Quit();
 #endif
-        
     }
 }
