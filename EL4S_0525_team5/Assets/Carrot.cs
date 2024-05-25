@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Carrot : GimmickBase
 {
-    protected override void OnHitKnifeEnter(Collision collision)
+    protected override void OnHitKnifeEnter(Collider2D collision)
     {
-        //“–‚½‚Á‚½‚Ì‰‰o
+        //â€œâ€“â€šÂ½â€šÃâ€šÂ½Å½Å¾â€šÃŒâ€°â€°Âo
         Instantiate(_objectFragment);
         Destroy(this.gameObject);
     }
