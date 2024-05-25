@@ -25,7 +25,11 @@ public class ScoreTable : MonoBehaviour
         scoreText.text = string.Format("{0:d5}",score);
     }
 
-
+    public void SetScore(int i)
+    {
+        score = i;
+        scoreText.text = string.Format("{0:d5}", score);
+    }
     public void ScoreIncrease(int i)
     {
         score += i;

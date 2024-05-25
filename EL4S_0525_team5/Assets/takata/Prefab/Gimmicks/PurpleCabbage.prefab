@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4999963227444695605}
-  - component: {fileID: -1882696715753370855}
+  - component: {fileID: -1226190976959406385}
   - component: {fileID: 6101692378931037870}
   - component: {fileID: 4010048425090722919}
   - component: {fileID: 2626494424701631523}
   m_Layer: 0
-  m_Name: Onion
+  m_Name: PurpleCabbage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,7 +35,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-1882696715753370855
+--- !u!114 &-1226190976959406385
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,11 +44,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5660156665406070719}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9777d6112eb94714fb60c7faabcb459b, type: 3}
+  m_Script: {fileID: 11500000, guid: ff3b0d8df2d11a14da551784db956256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 5
-  _objectFragment: {fileID: 0}
+  _duration: 2
+  _objectFragment: {fileID: 7592385128239887436, guid: d1dde7414b5ee4a45844daf2e58e246b, type: 3}
+  _baseScore: 100
+  cuttingTime: 1
+  requiredCutCount: 5
 --- !u!212 &6101692378931037870
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -87,11 +90,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.93962264, g: 0.9071489, b: 0.66482735, a: 1}
+  m_SortingLayerID: 28020713
+  m_SortingLayer: 1
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 21300000, guid: d42f63248086ab64bb4d8ac43636b6f1, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -164,7 +167,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 4, y: 4}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
