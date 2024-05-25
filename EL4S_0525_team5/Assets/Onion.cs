@@ -1,7 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 
-public class Carrot : GimmickBase
+public class Onion : GimmickBase
 {
     private void Start()
     {
@@ -33,7 +33,7 @@ public class Carrot : GimmickBase
         if(slashResultApplyable != null)
         {
             SlashResult slashResult = new();
-            slashResult.SetSuccessed(true);
+            slashResult.SetSuccessed(false);
             slashResultApplyable.ApplySlashResult(slashResult);
         }
 

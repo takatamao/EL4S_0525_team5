@@ -7,7 +7,7 @@ public class GimmickBase : MonoBehaviour
 
     void Update()
     {
-        this.GetComponent<Rigidbody2D>().velocity = new Vector2(-_speed, 0);
+        //this.GetComponent<Rigidbody2D>().velocity = new Vector2(-_speed, 0);
     }
 
 
