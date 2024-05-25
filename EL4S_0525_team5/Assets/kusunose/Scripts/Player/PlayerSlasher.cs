@@ -86,7 +86,7 @@ public class PlayerSlasher : MonoBehaviour, ISlashResultApplyable
     {
         animator.ResetTrigger("trCut");
         animator.SetTrigger("trIdle");
-        boxCollider2D.enabled = true;
+        //boxCollider2D.enabled = true;
 
 
 
@@ -100,6 +100,6 @@ public class PlayerSlasher : MonoBehaviour, ISlashResultApplyable
 
     void OnCutEnd()
     {
-        boxCollider2D.enabled = false;
+        //boxCollider2D.enabled = false;
     }
 }
