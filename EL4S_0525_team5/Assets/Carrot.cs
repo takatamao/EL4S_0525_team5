@@ -6,7 +6,7 @@ public class Carrot : GimmickBase
     {
         if (_objectFragment != null) Instantiate(_objectFragment);
         else Debug.LogError("破片オブジェクトがアタッチされていません！");
-
+        
         Destroy(this.gameObject);
     }
 }
