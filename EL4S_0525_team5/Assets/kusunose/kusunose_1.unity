@@ -133,7 +133,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2245106769487845044, guid: b22ad32761e882b4ea4d6e8cc919e33c, type: 3}
       propertyPath: _autoMode
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2245106769487845044, guid: b22ad32761e882b4ea4d6e8cc919e33c, type: 3}
+      propertyPath: _minSpawnRate
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2245106769487845044, guid: b22ad32761e882b4ea4d6e8cc919e33c, type: 3}
       propertyPath: _spawnList.Array.size
@@ -146,15 +150,19 @@ PrefabInstance:
     - target: {fileID: 2245106769487845044, guid: b22ad32761e882b4ea4d6e8cc919e33c, type: 3}
       propertyPath: _spawnList.Array.data[0]
       value: 
-      objectReference: {fileID: 5660156665406070719, guid: 80893d5bbbe098f43bb71b194b8f56ca, type: 3}
+      objectReference: {fileID: 5660156665406070719, guid: f6a4fba402b3d9a4d85fa66d586f8d56, type: 3}
     - target: {fileID: 2245106769487845044, guid: b22ad32761e882b4ea4d6e8cc919e33c, type: 3}
       propertyPath: _spawnList.Array.data[1]
       value: 
-      objectReference: {fileID: 5660156665406070719, guid: 80893d5bbbe098f43bb71b194b8f56ca, type: 3}
+      objectReference: {fileID: 5660156665406070719, guid: fda83cee40f2aaf46ac8fba94521d6b0, type: 3}
     - target: {fileID: 2245106769487845044, guid: b22ad32761e882b4ea4d6e8cc919e33c, type: 3}
       propertyPath: _spawnList.Array.data[2]
       value: 
-      objectReference: {fileID: 5660156665406070719, guid: 80893d5bbbe098f43bb71b194b8f56ca, type: 3}
+      objectReference: {fileID: 5660156665406070719, guid: fda83cee40f2aaf46ac8fba94521d6b0, type: 3}
+    - target: {fileID: 2245106769487845044, guid: b22ad32761e882b4ea4d6e8cc919e33c, type: 3}
+      propertyPath: _spawnList.Array.data[3]
+      value: 
+      objectReference: {fileID: 5660156665406070719, guid: fda83cee40f2aaf46ac8fba94521d6b0, type: 3}
     - target: {fileID: 2245106769487845044, guid: b22ad32761e882b4ea4d6e8cc919e33c, type: 3}
       propertyPath: _cutableList.Array.data[0]
       value: 
