@@ -47,6 +47,7 @@ public class SlashSpawner : MonoBehaviour
     {
         // 斬撃エフェクト
         Instantiate(_effect);
+        Debug.Log("effect");
     }
 
     public void GenerateZaku()
@@ -71,7 +72,7 @@ public class SlashSpawner : MonoBehaviour
 
     public void CameraShake()
     {
-        StartCoroutine(_CameraShake());
+        //StartCoroutine(_CameraShake());
     }
 
     IEnumerator _CameraShake()

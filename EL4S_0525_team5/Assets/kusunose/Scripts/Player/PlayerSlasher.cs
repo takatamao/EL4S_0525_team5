@@ -25,13 +25,24 @@ public class PlayerSlasher : MonoBehaviour, ISlashResultApplyable
     private int score = 0;
 
     public int Score => score;
+    private SlashSpawner _spawner;
 
+
+    [SerializeField]
+    AudioClip CutAudio_Success;
+    [SerializeField]
+    AudioClip CutAudio_Miss;
+
+    AudioSource audioSource;
 
     void Start()
     {
+        _spawner = GameObject.FindWithTag("ES").GetComponent<SlashSpawner>();
+
         boxCollider2D = handObject.GetComponent<BoxCollider2D>();
         boxCollider2D.enabled = false;
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -71,14 +82,25 @@ public class PlayerSlasher : MonoBehaviour, ISlashResultApplyable
         if(slashResult.IsSuccessed)
         {
             Debug.Log("カット成功");
+            audioSource.PlayOneShot(CutAudio_Success);
             //スコア加算
         }
         // 失敗
         else
+<<<<<<< HEAD
         {
+
+            
+
+=======
+        {
+            audioSource.PlayOneShot(CutAudio_Miss);
+>>>>>>> kawashima_Scene
             Debug.Log("カット失敗");
+
             if (slashResult.BlindDuration > 0)
             {
+                
                 // めくらましのデバフ処理
                 flashEffect.SetFlashDuration(slashResult.BlindDuration);
             }
