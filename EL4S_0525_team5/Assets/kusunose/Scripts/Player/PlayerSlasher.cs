@@ -16,11 +16,19 @@ public class PlayerSlasher : MonoBehaviour, ISlashResultApplyable
     /// </summary>
     private BoxCollider2D boxCollider2D;
 
+    /// <summary>
+    /// スコア
+    /// </summary>
+    private int score = 0;
+
+    public int Score => score;
+
+
     void Start()
     {
         boxCollider2D = handObject.GetComponent<BoxCollider2D>();
         boxCollider2D.enabled = false;
-        animator = GetComponent<Animator>();    
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -28,14 +36,22 @@ public class PlayerSlasher : MonoBehaviour, ISlashResultApplyable
         // 振り下ろす
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            animator.ResetTrigger("trIdle");
-            animator.SetTrigger("trCut");
+            try
+            {
+                animator.ResetTrigger("trIdle");
+                animator.SetTrigger("trCut");
+            }
+            catch
+            {
+                Debug.LogError("animatorがアタッチされていません");
+            }
 
+            boxCollider2D.enabled = true;
         }
         //　戻す
         else if (Input.GetKeyUp(KeyCode.Space))
         {
-           
+            boxCollider2D.enabled = false;
         }
     }
 
@@ -45,6 +61,9 @@ public class PlayerSlasher : MonoBehaviour, ISlashResultApplyable
     /// <param name="damage"></param>
     public void ApplySlashResult(SlashResult slashResult)
     {
+        score += (int)slashResult.Score;
+        Debug.Log(score);
+
         // 成功
         if(slashResult.IsSuccessed)
         {
@@ -69,6 +88,8 @@ public class PlayerSlasher : MonoBehaviour, ISlashResultApplyable
         animator.SetTrigger("trIdle");
         boxCollider2D.enabled = true;
 
+
+
 #if UNITY_EDITOR
         Vector2 leftTop = (Vector2)handObject.transform.position + boxCollider2D.size / 2;
         Vector2 rightBotom = (Vector2)handObject.transform.position - boxCollider2D.size / 2;
@@ -80,6 +101,5 @@ public class PlayerSlasher : MonoBehaviour, ISlashResultApplyable
     void OnCutEnd()
     {
         boxCollider2D.enabled = false;
-       
     }
 }
