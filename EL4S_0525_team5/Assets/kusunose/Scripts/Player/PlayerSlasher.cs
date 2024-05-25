@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerSlasher : MonoBehaviour
+public class PlayerSlasher : MonoBehaviour, ISlashResultApplyable
 {
     /// <summary>
     /// 刃物を振るう手のオブジェクト
@@ -40,5 +40,29 @@ public class PlayerSlasher : MonoBehaviour
         {
             boxCollider2D.enabled = false;
         }
+    }
+
+    /// <summary>
+    /// 切った結果を受ける
+    /// </summary>
+    /// <param name="damage"></param>
+    public void ApplySlashResult(SlashResult slashResult)
+    {
+        // 成功
+        if(slashResult.IsSuccessed)
+        {
+            Debug.Log("カット成功");
+            //スコア加算
+        }
+        // 失敗
+        else
+        {
+            Debug.Log("カット失敗");
+            if (slashResult.BlindDuration > 0)
+            {
+                // めくらましのデバフ処理
+            }
+        }
+
     }
 }
