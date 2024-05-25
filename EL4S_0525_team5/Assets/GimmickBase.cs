@@ -14,7 +14,7 @@ public class GimmickBase : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Floor")) OnHitKnifeEnter(collision);
+        if (collision.gameObject.CompareTag("Knife")) OnHitKnifeEnter(collision);
     }
 
     protected virtual void OnHitKnifeEnter(Collision collision) { }
